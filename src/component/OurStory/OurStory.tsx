@@ -40,7 +40,7 @@ const OurStory = () => {
 
     ]
   return (
-    <section className='my-28'>
+    <section className='my-20'>
         <div className='container mx-auto'>
             <div className='relative'>
                 <div className='bg-[#F7E7E8] h-[390px] flex items-center md:w-10/12 '>
