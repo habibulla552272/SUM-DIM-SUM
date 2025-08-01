@@ -11,7 +11,7 @@ const ReservetableFrom = () => {
     const [open, setOpen] = React.useState(false)
     const [date, setDate] = React.useState<Date | undefined>(undefined)
     return (
-        <div>
+        <section>
             <form className="flex flex-col  gap-8 text-black w-full">
                 <div className='flex flex-col gap-4 md:flex-row w-full'>
 
@@ -80,9 +80,6 @@ const ReservetableFrom = () => {
                     </div>
                 </div>
 
-
-
-
                 <div className="w-56 mt-6 mx-auto">
                     <button
                         type="submit"
@@ -92,7 +89,7 @@ const ReservetableFrom = () => {
                     </button>
                 </div>
             </form>
-        </div>
+        </section>
     )
 }
 

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import ReservetableFrom from './ReservetableFrom'
+import ReservetableFrom from './ReservetableForm'
 
 const ReserveTable = () => {
     return (
