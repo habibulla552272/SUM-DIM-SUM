@@ -43,7 +43,7 @@ const OurStory = () => {
     <section className='my-20'>
         <div className='container mx-auto'>
             <div className='relative'>
-                <div className='bg-[#F7E7E8] h-[390px] flex items-center md:w-10/12 '>
+                <div className='bg-[#F7E7E8] h-[390px] flex items-center md:w-[70%] '>
                     <div className='flex flex-col gap-5 w-[60%]'>
                         <h2 className='cinzel text-5xl leading-[136%] '>Our Story</h2>
                         <p className='text-sm font-normal leading-[150%]'>At Sum Dim Sum, we are a local Singaporean brand that prepares dim sum dishes with wholehearted dedication and passion. Our chefs use traditional techniques to craft our dishes, ensuring that they are of the highest quality. Come and experience our fresh and flavorful cuisine.</p>
@@ -53,8 +53,11 @@ const OurStory = () => {
 
                             <Image className='w-[200px] h-[150px]' src={'/OurStoryTree.png'}  alt='Tree' width={478} height={286} />
                     </div>
-                    <div className='relative w-[200px] h-[200px] md:w-[512px] md:h-[360px] md:absolute  md:right-[15px] md:top-[84px] top-[40px]'>
-                        <Image className='w-[200px] h-[200px] md:w-[512px] md:h-[360px]' src={'/OurStoryRight.png'}  alt='Tree' layout='fill' />
+                    <div className='relative w-[200px] h-[200px] lg:w-[512px] lg:h-[360px] md:absolute  md:right-[40px] md:top-[84px] top-[40px] '>
+                         <p className=' absolute md:bottom-30 bottom-10  md:left-20 right-10 rounded-2xl  w-[170px] h-[180px] lg:w-[452px] lg:h-[280px] border-2 border-orange-500'>
+
+                        </p>
+                        <Image className='w-[200px] h-[200px] lg:w-[512px] lg:h-[360px]' src={'/OurStoryRight.png'}  alt='Tree' layout='fill' />
                     </div>
                 </div>
                 <div>

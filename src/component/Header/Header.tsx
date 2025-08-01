@@ -12,20 +12,20 @@ import { FaFacebookF } from "react-icons/fa";
 const Header = () => {
   return (
     <section className='bg-black py-2 text-[#F8F8FF] '>
-      <div className='container mx-auto text-sx flex justify-center flex-wrap gap-6 md:gap-0 md:justify-between items-center'>
+      <div className='container mx-auto md:pxg-5  text-sx flex justify-center flex-wrap gap-6 md:gap-0 md:justify-between items-center'>
         <div className='flex gap-6'>
            
-                <div className='flex gap-2 items-center  '>
+                <div className='flex gap-2 items-center text-xs '>
                     <FaLocationDot className='text-lg '/>
                     <span className='font-normal '>Your Address Here</span>
                 </div>
                  <div className='flex gap-2 items-center '>
                     <MdLocalPhone className='text-lg '/>
-                    <span className='font-normal'>1234567890</span>
+                    <span className='font-light poppins text-xs'>1234567890</span>
                 </div>
                  <div className='flex gap-2 items-center '>
                     <CiMail className='text-lg '/>
-                    <span className='font-normal  '>example@example.com</span>
+                    <span className='font-normal  text-xs '>example@example.com</span>
                 </div>
               
         </div>

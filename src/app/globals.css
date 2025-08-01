@@ -18,6 +18,10 @@
 .passions {
   font-family: var(--font-passions), serif;
 }
+.poppins {
+  font-family: var(--font-poppins), serif;
+}
+
 
 
 @theme inline {

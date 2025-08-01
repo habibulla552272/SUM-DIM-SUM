@@ -1,4 +1,5 @@
 'use client'
+import { reservetablePostCreate } from '@/Api/ApiPost'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
 import { Input } from '@/components/ui/input'
@@ -10,9 +11,41 @@ import React from 'react'
 const ReservetableFrom = () => {
     const [open, setOpen] = React.useState(false)
     const [date, setDate] = React.useState<Date | undefined>(undefined)
+
+
+    async function reservatonBook(formData) {
+
+        const rawTime = formData.get('reservationTime')?.toString(); 
+
+        function formatTimeTo12Hour(time24: string): string {
+            const [hourStr, minuteStr] = time24.split(":");
+            let hour = parseInt(hourStr);
+            const ampm = hour >= 12 ? "PM" : "AM";
+            hour = hour % 12 || 12;
+            return `${hour}:${minuteStr} ${ampm}`;
+        }
+
+        const fixedTime = rawTime ? formatTimeTo12Hour(rawTime) : "";
+
+        const userReservData = {
+            name: formData.get('name'),
+            numberOfGuests: Number(formData.get('numberOfGuests')),
+            reservationDate: date ? date.toISOString().split('T')[0] : '',
+            reservationTime: fixedTime
+        };
+
+        try {
+            const config = await reservetablePostCreate(userReservData);
+            return <h4>thank you</h4>
+        } catch (error) {
+            console.error("Reservation Error:", error);
+        }
+
+    }
+
     return (
         <section>
-            <form className="flex flex-col  gap-8 text-black w-full">
+            <form action={reservatonBook} className="flex flex-col  gap-8 text-black w-full">
                 <div className='flex flex-col gap-4 md:flex-row w-full'>
 
                     <input
@@ -26,18 +59,18 @@ const ReservetableFrom = () => {
                     />
                     <select
                         id="persons"
-                        name="persons"
-
+                        name="numberOfGuests"
+                        
                         className="p-3 w-full md:w-1/2 border-b-2  bg-white text-sm outline-none "
                     >
-                        <option>1 Person</option>
-                        <option>2 Persons</option>
-                        <option>3 Persons</option>
-                        <option>4 Persons</option>
-                        <option>5 Persons</option>
-                        <option>6 Persons</option>
-                        <option>10 Persons</option>
-                        <option>15 Persons</option>
+                        <option>1</option>
+                        <option>2 </option>
+                        <option>3 </option>
+                        <option>4 </option>
+                        <option>5 </option>
+                        <option>6 </option>
+                        <option>10 </option>
+                        <option>15 </option>
                     </select>
                 </div>
 
@@ -59,6 +92,7 @@ const ReservetableFrom = () => {
                                 <Calendar
                                     mode="single"
                                     selected={date}
+
                                     captionLayout="dropdown"
                                     onSelect={(date) => {
                                         setDate(date)
@@ -74,6 +108,7 @@ const ReservetableFrom = () => {
                             type="time"
                             id="time-picker"
                             step="1"
+                            name='reservationTime'
                             defaultValue="10:30:00"
                             className="bg-background w-full border-none outline-none appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
                         />
