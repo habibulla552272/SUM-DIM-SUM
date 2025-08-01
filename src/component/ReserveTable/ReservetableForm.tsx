@@ -7,41 +7,45 @@ import { Input } from '@/components/ui/input'
 import { Popover, PopoverContent, PopoverTrigger } from '@radix-ui/react-popover'
 import { ChevronDownIcon } from 'lucide-react'
 import React from 'react'
-
+interface UserReservation {
+  name: string; 
+  numberOfGuests: number;
+  reservationDate: string;
+  reservationTime: string;
+}
 const ReservetableFrom = () => {
     const [open, setOpen] = React.useState(false)
     const [date, setDate] = React.useState<Date | undefined>(undefined)
 
 
-    async function reservatonBook(formData) {
+   async function reservatonBook(formData: FormData) {
+    const rawTime = formData.get('reservationTime')?.toString(); 
 
-        const rawTime = formData.get('reservationTime')?.toString(); 
-
-        function formatTimeTo12Hour(time24: string): string {
-            const [hourStr, minuteStr] = time24.split(":");
-            let hour = parseInt(hourStr);
-            const ampm = hour >= 12 ? "PM" : "AM";
-            hour = hour % 12 || 12;
-            return `${hour}:${minuteStr} ${ampm}`;
-        }
-
-        const fixedTime = rawTime ? formatTimeTo12Hour(rawTime) : "";
-
-        const userReservData = {
-            name: formData.get('name'),
-            numberOfGuests: Number(formData.get('numberOfGuests')),
-            reservationDate: date ? date.toISOString().split('T')[0] : '',
-            reservationTime: fixedTime
-        };
-
-        try {
-            const config = await reservetablePostCreate(userReservData);
-            return <h4>thank you</h4>
-        } catch (error) {
-            console.error("Reservation Error:", error);
-        }
-
+    function formatTimeTo12Hour(time24: string): string {
+        const [hourStr, minuteStr] = time24.split(":");
+        let hour = parseInt(hourStr);
+        const ampm = hour >= 12 ? "PM" : "AM";
+        hour = hour % 12 || 12;
+        return `${hour}:${minuteStr} ${ampm}`;
     }
+
+    const fixedTime = rawTime ? formatTimeTo12Hour(rawTime) : "";
+
+    const userReservData:UserReservation = {
+        name: formData.get('name')?.toString() || "",
+        numberOfGuests: Number(formData.get('numberOfGuests')) || 1,
+        reservationDate: (typeof date !== "undefined" && date) ? date.toISOString().split('T')[0] : '',
+        reservationTime: fixedTime
+    };
+
+    try {
+       await reservetablePostCreate(userReservData);
+        
+    } catch (error) {
+        console.error("Reservation Error:", error);
+    }
+}
+
 
     return (
         <section>

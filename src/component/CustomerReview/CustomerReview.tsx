@@ -1,5 +1,5 @@
 'use client'
-import { Button } from '@/components/ui/button'
+
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { FaQuoteLeft, FaStar } from 'react-icons/fa6'
@@ -49,7 +49,7 @@ const CustomerReview = () => {
         }, 6000)
 
         return () => clearInterval(timer)
-    }, [])
+    }, [CustomerReviewData.length])
 
     const rightArrowHandel = () => {
         console.log('hello');

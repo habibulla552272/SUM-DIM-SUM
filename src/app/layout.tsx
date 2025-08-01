@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel_Decorative, Geist, Geist_Mono, Passions_Conflict, Poppins, Raleway } from "next/font/google";
+import { Cinzel_Decorative, Passions_Conflict, Poppins, Raleway } from "next/font/google";
 import "./globals.css";
 
 

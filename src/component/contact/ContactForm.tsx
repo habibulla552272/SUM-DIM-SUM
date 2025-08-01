@@ -5,22 +5,21 @@ import Image from 'next/image'
 
 const ContactForm = () => {
 
-    async function addContactMessage(fromData) {
+    async function addContactMessage(formData: FormData) {
         'use server'
         const userData = {
-            name: fromData.get('name'),
-            email: fromData.get('email'),
-            phoneNumber: fromData.get('phoneNumber'),
-            message: fromData.get('message'),
-        }
+            name: formData.get("name")?.toString() || '',
+            email: formData.get("email")?.toString() || '',
+            phoneNumber: formData.get("phone")?.toString() || '',
+            message: formData.get("message")?.toString() || '',
+        };
 
-        try{
-            const user= await contactMessageCreate(userData)
-            console.log(user);
-            
-        }catch(error){
+        try {
+            await contactMessageCreate(userData)
+
+        } catch (error) {
             console.log(error);
-            
+
         }
 
     }
@@ -35,7 +34,7 @@ const ContactForm = () => {
                     <input className='outline-none border-b-2 pb-1 w-full' type="text" name="name" required id="name" placeholder='Name' />
                     <div className='flex flex-col md:flex-row gap-5'>
                         <input className='outline-none border-b-2 pb-1 w-full' type="mail" name="email" required id="" placeholder='Email' />
-                        <input className='outline-none border-b-2 pb-1 w-full' type="tel" name="phoneNumber" required id="" placeholder='Phone Number' />
+                        <input className='outline-none border-b-2 pb-1 w-full' type="tel" name="phone" required id="" placeholder='Phone Number' />
                     </div>
                     <div className=''>
                         <textarea className='w-full outline-none border-b-2' name="message" required id="" rows={1} placeholder='Type your message here'></textarea>
