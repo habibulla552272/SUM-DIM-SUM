@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel_Decorative, Geist, Geist_Mono, Raleway } from "next/font/google";
+import { Cinzel_Decorative, Geist, Geist_Mono, Passions_Conflict, Raleway } from "next/font/google";
 import "./globals.css";
 
 
@@ -14,6 +14,12 @@ import "./globals.css";
  variable:'--font-cinzel',
  subsets:['latin'],
  weight:['400','700','900']
+
+})
+ const passions= Passions_Conflict({
+ variable:'--font-passions',
+ subsets:['latin'],
+ weight:['400']
 
 })
 
@@ -31,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${raleway.variable} ${cinzel.variable} antialiased`}
+        className={`${raleway.variable} ${cinzel.variable} ${passions.variable} antialiased`}
       >
         {children}
       </body>

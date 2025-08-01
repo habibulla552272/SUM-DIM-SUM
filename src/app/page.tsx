@@ -1,4 +1,5 @@
 import Banner from "@/component/Banner/Banner";
+import CustomerReview from "@/component/CustomerReview/CustomerReview";
 import DiveSumptuous from "@/component/DiveSumptuous/DiveSumptuous";
 import Header from "@/component/Header/Header";
 import OurStory from "@/component/OurStory/OurStory";
@@ -13,6 +14,7 @@ export default function Home() {
     <OurStory />
     <TasteTradition />
     <DiveSumptuous />
+    <CustomerReview />
     </>
   );
 }

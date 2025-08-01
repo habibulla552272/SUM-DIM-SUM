@@ -15,6 +15,9 @@
 .cinzel {
   font-family: var(--font-cinzel), serif;
 }
+.passions {
+  font-family: var(--font-passions), serif;
+}
 
 
 @theme inline {
