@@ -3,54 +3,46 @@ import { reservetablePostCreate } from '@/Api/ApiPost'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
 import { Input } from '@/components/ui/input'
-
 import { Popover, PopoverContent, PopoverTrigger } from '@radix-ui/react-popover'
 import { ChevronDownIcon } from 'lucide-react'
 import React from 'react'
 interface UserReservation {
-  name: string; 
-  numberOfGuests: number;
-  reservationDate: string;
-  reservationTime: string;
+    name: string;
+    numberOfGuests: number;
+    reservationDate: string;
+    reservationTime: string;
 }
 const ReservetableFrom = () => {
     const [open, setOpen] = React.useState(false)
     const [date, setDate] = React.useState<Date | undefined>(undefined)
+    async function reservatonBook(formData: FormData) {
+        const rawTime = formData.get('reservationTime')?.toString();
+        function formatTimeTo12Hour(time24: string): string {
+            const [hourStr, minuteStr] = time24.split(":");
+            let hour = parseInt(hourStr);
+            const ampm = hour >= 12 ? "PM" : "AM";
+            hour = hour % 12 || 12;
+            return `${hour}:${minuteStr} ${ampm}`;
+        }
 
+        const fixedTime = rawTime ? formatTimeTo12Hour(rawTime) : "";
+        const userReservData: UserReservation = {
+            name: formData.get('name')?.toString() || "",
+            numberOfGuests: Number(formData.get('numberOfGuests')) || 1,
+            reservationDate: (typeof date !== "undefined" && date) ? date.toISOString().split('T')[0] : '',
+            reservationTime: fixedTime
+        };
 
-   async function reservatonBook(formData: FormData) {
-    const rawTime = formData.get('reservationTime')?.toString(); 
-
-    function formatTimeTo12Hour(time24: string): string {
-        const [hourStr, minuteStr] = time24.split(":");
-        let hour = parseInt(hourStr);
-        const ampm = hour >= 12 ? "PM" : "AM";
-        hour = hour % 12 || 12;
-        return `${hour}:${minuteStr} ${ampm}`;
+        try {
+            await reservetablePostCreate(userReservData);
+        } catch (error) {
+            console.error("Reservation Error:", error);
+        }
     }
-
-    const fixedTime = rawTime ? formatTimeTo12Hour(rawTime) : "";
-
-    const userReservData:UserReservation = {
-        name: formData.get('name')?.toString() || "",
-        numberOfGuests: Number(formData.get('numberOfGuests')) || 1,
-        reservationDate: (typeof date !== "undefined" && date) ? date.toISOString().split('T')[0] : '',
-        reservationTime: fixedTime
-    };
-
-    try {
-       await reservetablePostCreate(userReservData);
-        
-    } catch (error) {
-        console.error("Reservation Error:", error);
-    }
-}
-
-
     return (
         <section>
-            <form action={reservatonBook} className="flex flex-col  gap-8 text-black w-full">
-                <div className='flex flex-col gap-4 md:flex-row w-full'>
+            <form action={reservatonBook} className="flex flex-col  text-black w-full">
+                <div className='flex flex-col gap-4 md:flex-row w-full mb-[60px] lg:mb-[80px]'>
 
                     <input
                         id="name"
@@ -64,7 +56,7 @@ const ReservetableFrom = () => {
                     <select
                         id="persons"
                         name="numberOfGuests"
-                        
+
                         className="p-3 w-full md:w-1/2 border-b-2  bg-white text-sm outline-none "
                     >
                         <option>1</option>
@@ -78,9 +70,8 @@ const ReservetableFrom = () => {
                     </select>
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-4 w-full ">
+                <div className="flex flex-col md:flex-row gap-4 w-full mb-[40px] lg:mb-[60px] ">
                     <div className="flex flex-col gap-3 w-full md:w-1/2 border-b-2">
-
                         <Popover open={open} onOpenChange={setOpen}>
                             <PopoverTrigger asChild>
                                 <Button
@@ -107,7 +98,6 @@ const ReservetableFrom = () => {
                         </Popover>
                     </div>
                     <div className=" border-b-2 outline-none w-full md:w-1/2">
-
                         <Input
                             type="time"
                             id="time-picker"
@@ -118,12 +108,10 @@ const ReservetableFrom = () => {
                         />
                     </div>
                 </div>
-
                 <div className="w-56 mt-6 mx-auto">
                     <button
                         type="submit"
-                        className="bg-[#B31217] text-white py-3 px-8 rounded-lg text-[16px] font-medium  w-full"
-                    >
+                        className="bg-[#B31217] text-white py-3 px-8 rounded-lg text-[16px] font-medium  w-full">
                         Book Now
                     </button>
                 </div>

@@ -11,9 +11,9 @@ import { FaFacebookF } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <section className='bg-black py-2 px-6 text-[#F8F8FF] '>
+    <section className='bg-black py-3 px-6 text-[#F8F8FF] '>
       <div className='container mx-auto   text-sx flex justify-center flex-wrap gap-6 md:gap-0 md:justify-between items-center'>
-        <div className='flex gap-6 flex-wrap justify-center'>
+        <div className='flex gap-6 items-center flex-wrap justify-center'>
 
           <div className='flex gap-2 items-center '>
             <FaLocationDot className='text-lg '/>

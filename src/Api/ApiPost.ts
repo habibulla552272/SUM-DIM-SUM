@@ -8,8 +8,8 @@ export interface ContactMessage {
 export interface ReservationData {
   name: string;
   numberOfGuests: number;
-  reservationDate: string;  // e.g., "2025-08-01"
-  reservationTime: string;  // e.g., "9:00 PM"
+  reservationDate: string;  
+  reservationTime: string;  
 }
 
 export const contactMessageCreate =async (userData:ContactMessage)=>{

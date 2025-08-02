@@ -40,13 +40,13 @@ const OurStory = () => {
 
     ]
     return (
-        <section className='my-20'>
+        <section className='my-[120px]'>
             <div className='container mx-auto'>
                 <div className='relative'>
                     <div className='bg-[#F7E7E8] h-[390px] flex items-center flex-col gap-5 lg:gap-0 py-5 lg:py-0 lg:flex-row lg:w-[70%] px-6'>
-                        <div className='flex flex-col gap-5 lg:w-[80%]'>
-                            <h2 className='cinzel md:text-5xl text-2xl leading-[136%] '>Our Story</h2>
-                            <p className='text-xs md:text-sm font-normal leading-[150%]'>
+                        <div className='flex flex-col  lg:w-[80%]'>
+                            <h2 className='cinzel md:text-5xl text-2xl leading-[136%] mb-[20px]'>Our Story</h2>
+                            <p className='text-xs md:text-[16px] font-normal leading-[150%] mb-[40px]'>
                                 At Sum Dim Sum, we are a local Singaporean brand that prepares dim sum dishes
                                 with wholehearted dedication and passion. Our chefs use traditional techniques
                                 to craft our dishes, ensuring that they are of the highest quality. Come and experience
@@ -65,15 +65,15 @@ const OurStory = () => {
                         </div>
                     </div>
                 </div>
-                <div className='flex flex-wrap justify-center pt-10 md:mt-10'>
+                <div className='flex flex-wrap  justify-center pt-10 md:mt-10'>
                     {
 
                         ourStory.map((item) => (
-                            <div className='flex flex-col gap-2 py-5 md:py-0 w-1/2 md:w-1/5 items-center' key={item.id}>
+                            <div className='flex flex-col  py-5 md:py-0 w-1/2 md:w-1/5 items-center' key={item.id}>
 
-                                <item.link className='w-10 h-10 md:w-14 md:h-14 text-[#B31217]' />
+                                <item.link className='w-10 h-10 md:w-14 md:h-14 text-[#B31217] mb-[20px]' />
                                 <h3 className='cinzel font-bold text-xl md:text-4xl leading-[150%]'>{item.dig}</h3>
-                                <p className='text-xs md:text-sm   font-medium text-[#0C0C0C]'>{item.name}</p>
+                                <p className='text-xs md:text-[18px]   font-medium text-[#0C0C0C] leading-[150%]'>{item.name}</p>
                             </div>
                         ))
                     }

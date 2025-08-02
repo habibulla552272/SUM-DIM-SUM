@@ -2,22 +2,26 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
 @layer utilities {
 
   .container {
-    @apply mx-auto w-full max-w-7xl ;
+    @apply mx-auto w-full max-w-7xl;
   }
+
   .container-max {
-    @apply mx-auto w-full max-w-[1440px] ;
+    @apply mx-auto w-full max-w-[1440px];
   }
 }
 
 .cinzel {
-  font-family: var(--font-cinzel), serif;
+  font-family: var(--font-cinzel), serif !important;
 }
+
 .passions {
   font-family: var(--font-passions), serif;
 }
+
 .poppins {
   font-family: var(--font-poppins), serif;
 }
@@ -137,6 +141,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-raleway), sans-serif;
