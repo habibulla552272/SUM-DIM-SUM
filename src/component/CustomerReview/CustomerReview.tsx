@@ -8,6 +8,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 
 
+
 const CustomerReview = () => {
     const CustomerReviewData = [
         {
@@ -68,7 +69,7 @@ const CustomerReview = () => {
 
     return (
         <section>
-            <div className='container mx-auto'>
+            <div className=''>
                 <div className=' text-center pb-8 '>
                     <h3 className='font-bold text-5xl cinzel leading-[136%]'>The Talk of the Town</h3>
                     <Image className=' mx-auto object-cover ' src={'/objects.png'} alt='Taste Tradition' width={117} height={48} />
@@ -77,7 +78,6 @@ const CustomerReview = () => {
                     <Image className=' object-cover w-full h-[520px] aspect-auto opacity-90' objectFit='cover' src={'/DiveSumptuous.png'} alt='banner' width={1440} height={520} />
 
                     <div className=' absolute flex flex-col gap-5 text-[#F8F8FF] items-center justify-center opacity-80 bg-gradient-to-r from-[#031720] to-[#031720]  inset-0'>
-
                         <Image src={data.avatar} alt='client' width={100} height={100} />
                         <div className=' absolute inset-0 text-[#F8F8FF66]opacity-80  text-4xl  top-20 left-10 md:left-20'>
                             <FaQuoteLeft />
@@ -92,15 +92,11 @@ const CustomerReview = () => {
                                     return (
                                         <div key={id}>
                                             <FaStar className='text-orange-400 text-2xl' />
-
                                         </div>
                                     )
                                 })
                             }
                         </div>
-
-                        
-
                     </div>
                     <div className=' absolute passions bottom-12 md:bottom-24  right-5 text-[40px] md:text-[80px] font-normal text-[#F8F8FF66] leading-1.5 '>
                         -{data.name}
@@ -108,24 +104,21 @@ const CustomerReview = () => {
 
                     {/* button  */}
                     <div>
-                        <button onClick={leftArrowHandel} className={` absolute left-5 top-1/2 -translate-y-1/2 text-5xl text-white hover:rounded-3xl hover:bg-green-500 `}>
+                        <button onClick={leftArrowHandel} className={` absolute left-1 md:left-5 top-1/2 -translate-y-1/2 text-2xl md:text-5xl text-white hover:rounded-3xl hover:bg-[#F7E7E8] hover:text-black `}>
                             <IoIosArrowBack />
                         </button>
-                        <button onClick={rightArrowHandel} className={`absolute right-5 top-1/2  -translate-y-1/2 text-5xl text-white hover:rounded-3xl hover:bg-green-500`}>
+                        <button onClick={rightArrowHandel} className={`absolute right-2 md:right-5 top-1/2  -translate-y-1/2 text-2xl md:text-5xl text-white hover:rounded-3xl hover:bg-[#F7E7E8] hover:text-black`}>
                             <IoIosArrowForward />
                         </button>
                     </div>
                     <div className=' absolute bottom-5  flex left-1/2 gap-2 pt-10 md:pt-14'>
-                            {
-                                CustomerReviewData.map((item, id) => (
-                                    <div className={`w-2 h-2 rounded-full ${id == currentdata ? 'bg-white' : 'bg-gray-400'}`} key={id} >
-
-                                    </div>
-                                ))
-                            }
+                        {
+                            CustomerReviewData.map((item, id) => (
+                                <div className={`w-2 h-2 rounded-full ${id == currentdata ? 'bg-white' : 'bg-gray-400'}`} key={id} >
+                                </div>
+                            ))
+                        }
                     </div>
-
-
                 </div>
             </div>
         </section>

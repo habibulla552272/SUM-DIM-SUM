@@ -15,16 +15,16 @@ const Navbar = () => {
     }
 
     return (
-        <div className='container mx-auto py-8 '>
+        <div className='container mx-auto py-8 px-6'>
             <nav className='flex justify-between'>
                 <div className='text-2xl font-bold'>
-                    <Image src={'/logo.png'} alt='logo' width={100} height={48} />
+                    <Image src={'/Logo.png'} alt='logo' width={100} height={48} />
                 </div>
                 <div onClick={handelMenu} className='md:hidden text-3xl hover:text-green-300 bg-transparent'>
                     <TiThMenuOutline />
 
                 </div>
-                <div className={`absolute md:static bg-black md:bg-transparent w-full h-[100%] top-0 md:w-fit ${showmenu ? 'left-0  ease-in-out duration-500': '-left-[100%] ease-in-out duration-500'}`}>
+                <div className={`absolute md:static bg-black md:bg-transparent w-full h-full top-0 md:w-fit ${showmenu ? 'left-0 fixed top-0 ease-in-out duration-500': '-left-[100%] ease-in-out duration-500'}`}>
                     <div onClick={()=>setShowMenu(false)} className='md:hidden flex justify-end text-4xl pr-5 pt-5'>
                         <IoMdClose />
                     </div>
@@ -61,7 +61,7 @@ const Navbar = () => {
 
                 </div>
                 <div>
-                    <Button className='hover:bg-green-400'>
+                    <Button className='hover:bg-[#F7E7E8] hover:text-black'>
                         Book a Table
                     </Button>
                 </div>

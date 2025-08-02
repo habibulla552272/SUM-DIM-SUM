@@ -26,11 +26,11 @@ const ContactForm = () => {
 
     return (
         <div className='relative text-[#F8F8FF]'>
-            <Image className=' object-cover' objectFit='cover' src={'/FormImg.png'} alt='formImg' width={826} height={746} />
+            <Image className=' h-[546px] md:h-[746px] w-[826px] object-cover' objectFit='cover' src={'/FormImg.png'} alt='formImg' width={826} height={746} />
             <div className=' absolute flex flex-col justify-center items-center inset-0 text-[white]'>
                 <h3 className='font-semibold text-2xl'>Just Say Hi !</h3>
-                <p className='font-normal text-[16px] text-[#F8F8FF] py-5'>Tell us more about you and we’ll contact you soon.</p>
-                <form action={addContactMessage} className='flex flex-col gap-8 pt-6'>
+                <p className='font-normal text-[16px] text-[#F8F8FF] py-5 text-center'>Tell us more about you and we’ll contact you soon.</p>
+                <form action={addContactMessage} className='flex flex-col gap-8 pt-6 w-[85%]'>
                     <input className='outline-none border-b-2 pb-1 w-full' type="text" name="name" required id="name" placeholder='Name' />
                     <div className='flex flex-col md:flex-row gap-5'>
                         <input className='outline-none border-b-2 pb-1 w-full' type="mail" name="email" required id="" placeholder='Email' />
@@ -40,7 +40,7 @@ const ContactForm = () => {
                         <textarea className='w-full outline-none border-b-2' name="message" required id="" rows={1} placeholder='Type your message here'></textarea>
                     </div>
                     <div className='flex justify-end'>
-                        <Button type='submit' className='bg-[#B31217] w-[220px]'>
+                        <Button type='submit' className='bg-[#B31217] w-[220px] pointer-coarse:'>
                             Submit →
                         </Button>
                     </div>

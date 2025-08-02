@@ -15,12 +15,12 @@ const Banner = () => {
 
                 <Navbar />
                 </div>
-                <div className=' absolute flex flex-col gap-[60px] container mx-auto items-center justify-center inset-0 text-center'>
-                    <h2 className={`text-4xl md:text-6xl font-bold leading-tight cinzel `}>Welcome to Sum Dim Sum – Where Every Bite Tells a Story</h2>
-                    <p>At Sum Dim Sum, we bring families and friends together over the timeless tradition of sharing delectable dishes. From our expertly crafted dim sum to our vibrant ambiance, every moment here is a celebration of taste and togetherness. Explore our menu, reserve your table, or order your favorites online today!</p>
+                <div className=' absolute flex flex-col gap-[30px] md:gap-14 container mx-auto items-center justify-center inset-0 text-center'>
+                    <h2 className={`text-3xl px-2 md:text-6xl font-bold leading-tight cinzel`}>Welcome to Sum Dim Sum – Where Every Bite Tells a Story</h2>
+                    <p className='w-[95%] px-2'>At Sum Dim Sum, we bring families and friends together over the timeless tradition of sharing delectable dishes. From our expertly crafted dim sum to our vibrant ambiance, every moment here is a celebration of taste and togetherness. Explore our menu, reserve your table, or order your favorites online today!</p>
                     <Button className='bg-[#B31217]'>Explore Our Menu →</Button>
                 </div>
-                <div className=' absolute bottom-14 right-10 '>
+                <div className=' absolute md:bottom-14 bottom-8 right-10 '>
                     <Image src={'/checkProfile.png'} alt='check our Profile' width={174} height={174} />
                 </div>
             </div>
